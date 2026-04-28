@@ -1,0 +1,7 @@
+streamlit
+sqlalchemy
+pytest
+pandas
+plotly
+ruff
+black
