@@ -16,7 +16,7 @@ class Teacher(User):
         self.employee_number = employee_number
         self.subject = subject
         self.students = []
-        self.sumaries = []
+        self.summaries = []
         self.grades = []
         
     #add_student
@@ -29,11 +29,11 @@ class Teacher(User):
 
     #create_summary
     def create_summary(self, summary):
-        self.sumaries.append(summary)
+        self.summaries.append(summary)
 
     #list_summaries
     def list_summary(self):
-        return self.sumaries
+        return self.summaries
     
     #assin_grade
     def assign_grade(self, student, subject, value):
@@ -41,3 +41,5 @@ class Teacher(User):
 
         grade = Grade(student, subject, value)
         self.grades.append(grade)
+
+        return grade 

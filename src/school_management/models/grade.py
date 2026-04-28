@@ -12,4 +12,4 @@ class Grade:
         self.value = value
 
     def __str__(self):
-        return{f'{self.student.name} - {self.subject.name} : {self.value}'}
+        return{f'{self.student.name} - {self.subject.name}: {self.value}'}
