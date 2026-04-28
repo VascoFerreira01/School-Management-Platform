@@ -17,6 +17,7 @@ class Teacher(User):
         self.subject = subject
         self.students = []
         self.sumaries = []
+        self.grades = []
         
     #add_student
     def add_student(self, student):     
@@ -33,3 +34,10 @@ class Teacher(User):
     #list_summaries
     def list_summary(self):
         return self.sumaries
+    
+    #assin_grade
+    def assign_grade(self, student, subject, value):
+        from src.school_management.models.grade import Grade
+
+        grade = Grade(student, subject, value)
+        self.grades.append(grade)
