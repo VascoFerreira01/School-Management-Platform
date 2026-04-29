@@ -45,3 +45,9 @@ class Student(User):
         weighted_sum = sum(grade.value * grade.assessment.weight for grade in subject_grades) # Calculate the weighted sum of the grades for that subject
 
         return weighted_sum / total_weight if total_weight != 0 else 0 
+    
+    def __eq__(self, other):
+        if not isinstance(other, Student): # check if the other object is an instance of the Student class
+            return False 
+        
+        return self.user_id == other.user_id or self.student_number == other.student_number 
