@@ -35,11 +35,12 @@ class Teacher(User):
     def list_summary(self):
         return self.summaries
     
-    #assin_grade
-    def assign_grade(self, student, subject, value):
+    #assign_grade
+    def assign_grade(self, student, subject, assessment, value):
         from src.school_management.models.grade import Grade
 
-        grade = Grade(student, subject, value)
+        grade = Grade(student, subject, assessment, value)
         self.grades.append(grade)
+        student.add_grade(grade)
 
         return grade 

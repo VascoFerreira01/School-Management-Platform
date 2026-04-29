@@ -11,7 +11,8 @@ class Student(User):
         self.student_number = student_number
         self.class_name = class_name
         self.card_balance = 0.0  # not a entry parameter because it will be updated by the system when the student makes purchases in the cafeteria or library
-
+        self.grades = []
+        
     def add_balance(
         self, amount: float
     ) -> None:  # -> None means that this method does not return anything
@@ -26,3 +27,21 @@ class Student(User):
         if amount > self.card_balance:
             raise ValueError("Insufficient balance")
         self.card_balance -= amount
+
+    def add_grade(self, grade) -> None:
+        self.grades.append(grade)
+
+    def list_grades(self) -> list:
+        return self.grades
+    
+    def calculate_subject_average(self, subject):
+        subject_grades = [grade for grade in self.grades if grade.subject == subject] 
+        # Check if there are grades for that student in that subject
+
+        if not subject_grades: # If the list is empty, it means there are no grades for that student in that subject
+            raise ValueError('Student has no grades for this subject')
+        
+        total_weight = sum(grade.assessment.weight for grade in subject_grades) # Calculate the total weight of the assessments for that subject
+        weighted_sum = sum(grade.value * grade.assessment.weight for grade in subject_grades) # Calculate the weighted sum of the grades for that subject
+
+        return weighted_sum / total_weight if total_weight != 0 else 0 
