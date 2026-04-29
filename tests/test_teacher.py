@@ -12,14 +12,14 @@ def test_teacher_can_add_student():
 
     teacher.add_student(student)
 
-    assert student in teacher.list_student()
+    assert student in teacher.list_students()
 
 def test_teacher_can_create_summary():
     teacher = Teacher(1, "Maria Costa", "maria@email.com", "T001", "Matemática")
    
     teacher.create_summary('Introducao a equacoes')
 
-    assert 'Introducao a equacoes' in teacher.list_summary()
+    assert 'Introducao a equacoes' in teacher.list_summaries()
 
 
 def test_teacher_can_manage_grades():

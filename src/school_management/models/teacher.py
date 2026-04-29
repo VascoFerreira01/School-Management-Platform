@@ -24,7 +24,7 @@ class Teacher(User):
         self.students.append(student)
 
     #list_student
-    def list_student(self):
+    def list_students(self):
         return self.students
 
     #create_summary
@@ -32,7 +32,7 @@ class Teacher(User):
         self.summaries.append(summary)
 
     #list_summaries
-    def list_summary(self):
+    def list_summaries(self):
         return self.summaries
     
     #assign_grade
@@ -44,3 +44,10 @@ class Teacher(User):
         student.add_grade(grade)
 
         return grade 
+    
+    # sees if the teacher is already on the list of teachers by employee number 
+    def __eq__(self, other):
+        if not isinstance(other, Teacher):
+            return False
+        # Compara pelo número de funcionário ou pelo ID de utilizador
+        return self.employee_number == other.employee_number or self.user_id == other.user_id
