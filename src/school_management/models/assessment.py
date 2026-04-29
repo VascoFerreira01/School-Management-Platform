@@ -7,8 +7,8 @@ class Assessment:
         if not assessment_type:
             raise ValueError("Assessment type can't be empty")
         
-        if not weight:
-            raise ValueError("Assessment wight must be between 0 and 100")
+        if weight < 0 or weight > 100:
+            raise ValueError("Assessment weight must be between 0 and 100")
         
         self.name= name
         self.assessment_type = assessment_type
