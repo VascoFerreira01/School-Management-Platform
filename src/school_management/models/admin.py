@@ -18,7 +18,7 @@ class Admin(User):
     def add_report(self, report_name: str) -> None:
 
         if not report_name:  #this line means if the report_name is empty or None. 
-            raise ValueError('Report cannot be empty.')
+            raise ValueError('Report can not be empty.')
         
         self.available_reports.append(report_name)
 

@@ -31,7 +31,8 @@ def test_admin_can_activate_and_deactivate_user():
 def test_admin_cannot_add_empty_report():
     admin = Admin(1, "Diretor Escola", "diretor@email.com", "D001")
 
-    with pytest.add_report(''):
-        raise ValueError("The report can't be empty ")
+    with pytest.raises(ValueError, match="Report can not be empty"):
+        admin.add_report('')
+       
 
     
