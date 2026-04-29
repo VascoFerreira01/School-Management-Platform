@@ -30,8 +30,8 @@ class ClassGroup:
     def list_teachers(self) -> list:
         return self.teachers
     
-    def list_subjecs(self) -> list:
+    def list_subjects(self) -> list:
         return self.subjects
     
-    def __str__(self):
-        print(f'Class group: {self.name}')
+    def __str__(self) -> str:
+        return f'Class group: {self.name}'
